@@ -1,24 +1,12 @@
-/*-----
-Spanizer
-- Wraps letters with spans, for css animations
------*/
-(function($) {
-    var s,
-    spanizeLetters = {
-      settings: {
-        letters: $('.js-spanize'),
-      },
-      init: function() {
-        s = this.settings;
-        this.bindEvents();
-      },
-      bindEvents: function(){
-        s.letters.html(function (i, el) {
-          //spanizeLetters.joinChars();
-          var spanizer = $.trim(el).split("");
-          return '<span>' + spanizer.join('</span><span>') + '</span>';
-        });
-      },
-    };
-    spanizeLetters.init();
-  })(jQuery);
+/* This code is not required for the animation. This is only needed for the repeatation */
+
+$(function(){
+	$('.repeat').click(function(){
+    	var classes =  $(this).parent().attr('class');
+        $(this).parent().attr('class', 'animate');
+        var indicator = $(this);
+        setTimeout(function(){ 
+        	$(indicator).parent().addClass(classes);
+        }, 20);
+    });
+});
