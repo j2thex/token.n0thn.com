@@ -18,7 +18,9 @@
             <!-- <a href="javascript:location.reload()" id="refresh-link">Refresh Page</a> -->
         </div>
 
-        <center><h1>Welcome to n0thn</h1></center>
+        <center>
+            <h1>Welcome to n0thn</h1>
+        </center>
         <p>The website about... well, nothing.</p>
         <p>Why are you here? There's literally nothing to see.</p>
         <p>But since you're here, maybe check out our <a href="token-info.html"> n0thn token </a>?</p>
@@ -123,43 +125,16 @@
         });
 
 
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-            // iOS 13+
-            DeviceOrientationEvent.requestPermission()
-                .then(response => {
-                    if (response == 'granted') {
-                        window.addEventListener('deviceorientation', handleOrientation);
-                    }
-                })
-                .catch(console.error);
-        } else {
-            // Not iOS 13+
-            window.addEventListener('deviceorientation', handleOrientation);
-        }
-
-        // Check if the DeviceOrientation API is supported
-        if (window.DeviceOrientationEvent) {
-            window.addEventListener("deviceorientation", handleOrientation);
-        } else {
-            console.log("DeviceOrientation is not supported");
-        }
-
         function handleOrientation(event) {
-            const gamma = event.gamma; // This represents the left-to-right motion (tilt)
+            const gamma = event.gamma;
 
-            // Move the stickman based on the gamma value
-            if (gamma > 10) { // Tilted to the right
-                moveStickman(1); // Move right
-            } else if (gamma < -10) { // Tilted to the left
-                moveStickman(-1); // Move left
+            if (gamma > 10) {
+                moveStickman("right");
+            } else if (gamma < -10) {
+                moveStickman("left");
             }
         }
 
-        function moveStickman(direction) {
-            const stickman = document.getElementById('stickman');
-            const currentX = parseFloat(stickman.getAttribute('x') || 0);
-            stickman.setAttribute('x', currentX + direction * 5); // Adjust the '5' for speed
-        }
 
 
 
