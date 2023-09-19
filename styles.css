@@ -9,7 +9,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #FFEB3B;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -65,7 +65,7 @@ a:hover {
     padding: 10px;
     font-size: 16px;
     transition: background-color 0.2s;
-    background-color: #FFEB3B;
+    background-color: #FFf;
     color: #007BFF;
 
 }
