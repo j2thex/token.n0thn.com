@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function wave() {
         angle += direction * 5;
-        if (angle >= 45 || angle <= 0) {
+        if (angle >= 20 || angle <= -20) {
             direction = -direction;
         }
-        leftArm.setAttribute("transform", `rotate(${angle} 50 60)`);
+        // Adjust the rotation point (cx, cy) for the arm
+        leftArm.setAttribute("transform", `rotate(${angle}, 50, 60)`);
         requestAnimationFrame(wave);
     }
 
     wave();
 });
-
