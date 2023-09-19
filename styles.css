@@ -72,4 +72,8 @@ a:hover {
     display: none;
     padding: 0 10px;
 }
+#stickman {
+    touch-action: manipulation;
+    cursor: pointer;
+}
 
