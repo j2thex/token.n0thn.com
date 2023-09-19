@@ -42,7 +42,21 @@
         <button id="requestPermission">Enable Motion Controls</button>
     </center>
     <script>
-
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('requestPermission').addEventListener('click', function () {
+                if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                    DeviceOrientationEvent.requestPermission()
+                        .then(response => {
+                            if (response === 'granted') {
+                                window.addEventListener('deviceorientation', handleOrientation, true);
+                            }
+                        })
+                        .catch(console.error);
+                } else {
+                    window.addEventListener('deviceorientation', handleOrientation, true);
+                }
+            });
+        });
         document.addEventListener("DOMContentLoaded", function () {
             const stickman = document.getElementById("stickman");
             const leftArm = document.getElementById("left-arm");
