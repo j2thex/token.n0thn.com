@@ -100,7 +100,7 @@ a:hover {
         transform: translateX(130px) translateY(0) rotate(-45deg);
     }
     50% {
-        transform: translateX(65px) translateY(0) rotate(-45deg); /* Adjusted to half of the initial position */
+        transform: translateX(65px) translateY(0) rotate(-45deg);
     }
 }
 
@@ -108,10 +108,10 @@ a:hover {
     position: fixed;
     bottom: 50%; /* Adjusts the vertical position to the middle */
     right: 10px;
-    transform: translateX(130px) translateY(0) rotate(-45deg);
+    transform: translateX(130px) translateY(0) rotate(-45deg); /* Initial position set to off-screen */
     transform-origin: 50% 50%; /* This sets the rotation point to the center of the SVG */
-    animation: slideIn 5s forwards; /* 5s is the duration, adjust as needed */
-    animation-delay: 5s; 
+    animation: slideIn 5s forwards 5s; /* 5s is the duration, 5s delay before the animation starts */
+    animation-fill-mode: backwards; /* This ensures that during the delay, the styles defined by the 0% keyframe are applied */
 }
 
 
