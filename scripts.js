@@ -1,12 +1,17 @@
-/* This code is not required for the animation. This is only needed for the repeatation */
+document.addEventListener("DOMContentLoaded", function() {
+    const leftArm = document.getElementById("left-arm");
+    let direction = 1;
+    let angle = 0;
 
-$(function(){
-	$('.repeat').click(function(){
-    	var classes =  $(this).parent().attr('class');
-        $(this).parent().attr('class', 'animate');
-        var indicator = $(this);
-        setTimeout(function(){ 
-        	$(indicator).parent().addClass(classes);
-        }, 20);
-    });
+    function wave() {
+        angle += direction * 5;
+        if (angle >= 45 || angle <= 0) {
+            direction = -direction;
+        }
+        leftArm.setAttribute("transform", `rotate(${angle} 50 60)`);
+        requestAnimationFrame(wave);
+    }
+
+    wave();
 });
+
