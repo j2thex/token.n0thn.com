@@ -9,7 +9,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #FFEB3B;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -65,7 +65,7 @@ a:hover {
     padding: 10px;
     font-size: 16px;
     transition: background-color 0.2s;
-    background-color: white;
+    background-color: #FFEB3B;
     color: #007BFF;
 
 }
@@ -112,6 +112,25 @@ a:hover {
     transform-origin: 50% 50%; /* This sets the rotation point to the center of the SVG */
     animation: slideIn 5s forwards 5s; /* 5s is the duration, 5s delay before the animation starts */
     animation-fill-mode: backwards; /* This ensures that during the delay, the styles defined by the 0% keyframe are applied */
+}
+
+button {
+    background-color: #FFC107; /* Button color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #FFA000; /* Darker shade for hover effect */
 }
 
 
