@@ -139,7 +139,17 @@
             }
         }
 
+        const permissionButton = document.getElementById('requestPermission');
 
+        if (permissionButton) {
+            permissionButton.addEventListener('click', function () {
+                console.log("Button clicked");  // This should log when the button is clicked
+
+                // ... rest of your permission request code ...
+            });
+        } else {
+            console.error("Permission button not found");
+        }
 
 
 

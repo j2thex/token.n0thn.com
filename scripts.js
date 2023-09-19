@@ -14,19 +14,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
-document.getElementById('requestPermission').addEventListener('click', function () {
-    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-        DeviceOrientationEvent.requestPermission()
-            .then(response => {
-                if (response === 'granted') {
-                    window.addEventListener('deviceorientation', handleOrientation, true);
-                }
-            })
-            .catch(console.error);
-    } else {
-        window.addEventListener('deviceorientation', handleOrientation, true);
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('requestPermission').addEventListener('click', function () {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission()
+                .then(response => {
+                    if (response === 'granted') {
+                        window.addEventListener('deviceorientation', handleOrientation, true);
+                    }
+                })
+                .catch(console.error);
+        } else {
+            window.addEventListener('deviceorientation', handleOrientation, true);
+        }
+    });
 });
-
 
