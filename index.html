@@ -122,42 +122,46 @@
             wave();
         });
 
-        // this should allow contols for mobile
-        document.addEventListener('touchstart', function (e) {
-            e.preventDefault();
-            let isMoving = false;
-            let moveDirection = 0; // -1 for left, 1 for right
 
-            document.addEventListener('touchstart', function (e) {
-                const touchX = e.touches[0].clientX;
-                const screenWidth = window.innerWidth;
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            // iOS 13+
+            DeviceOrientationEvent.requestPermission()
+                .then(response => {
+                    if (response == 'granted') {
+                        window.addEventListener('deviceorientation', handleOrientation);
+                    }
+                })
+                .catch(console.error);
+        } else {
+            // Not iOS 13+
+            window.addEventListener('deviceorientation', handleOrientation);
+        }
 
-                if (touchX < screenWidth / 2) {
-                    moveDirection = -1; // Move left
-                } else {
-                    moveDirection = 1; // Move right
-                }
+        // Check if the DeviceOrientation API is supported
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener("deviceorientation", handleOrientation);
+        } else {
+            console.log("DeviceOrientation is not supported");
+        }
 
-                isMoving = true;
-                moveStickman();
-            });
+        function handleOrientation(event) {
+            const gamma = event.gamma; // This represents the left-to-right motion (tilt)
 
-            document.addEventListener('touchend', function () {
-                isMoving = false;
-            });
-
-            function moveStickman() {
-                if (isMoving) {
-                    // Your logic to move the stickman left or right based on moveDirection
-                    // For example:
-                    const stickman = document.getElementById('stickman');
-                    const currentX = parseFloat(stickman.getAttribute('x') || 0);
-                    stickman.setAttribute('x', currentX + moveDirection * 5); // Adjust the '5' for speed
-
-                    requestAnimationFrame(moveStickman);
-                }
+            // Move the stickman based on the gamma value
+            if (gamma > 10) { // Tilted to the right
+                moveStickman(1); // Move right
+            } else if (gamma < -10) { // Tilted to the left
+                moveStickman(-1); // Move left
             }
-        });
+        }
+
+        function moveStickman(direction) {
+            const stickman = document.getElementById('stickman');
+            const currentX = parseFloat(stickman.getAttribute('x') || 0);
+            stickman.setAttribute('x', currentX + direction * 5); // Adjust the '5' for speed
+        }
+
+
 
 
     </script>
