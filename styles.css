@@ -77,3 +77,14 @@ a:hover {
     cursor: pointer;
 }
 
+/* Hide the button by default */
+#requestPermission {
+    display: none;
+}
+
+/* Show the button on screens with a max-width of 768 pixels */
+@media screen and (max-width: 768px) {
+    #requestPermission {
+        display: block;
+    }
+}
