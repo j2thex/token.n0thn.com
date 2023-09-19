@@ -50,3 +50,26 @@ a:hover {
 #back-link:hover, #refresh-link:hover {
     text-decoration: underline;
 }
+.faq-question {
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    background-color: white;
+    color: blue;
+    text-decoration: underline;
+}
+
+.faq-question:hover {
+    background-color: #f1f1f1;
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 10px;
+}
+

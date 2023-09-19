@@ -7,6 +7,7 @@
     <title>n0thn.com - A Website About Nothing</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
+
 </head>
 
 <body>
@@ -30,7 +31,131 @@
         <line x1="50" y1="120" x2="30" y2="170" stroke="black" stroke-width="5" id="left-leg"></line> <!-- Left Leg -->
         <line x1="50" y1="120" x2="70" y2="170" stroke="black" stroke-width="5" id="right-leg"></line> <!-- Right Leg -->
     </svg>
-    
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const stickman = document.getElementById("stickman");
+    const leftArm = document.getElementById("left-arm");
+    const rightArm = document.getElementById("right-arm");
+    const leftLeg = document.getElementById("left-leg");
+    const rightLeg = document.getElementById("right-leg");
+    let direction = 1;
+    let angle = 0;
+    let isRunning = false;
+    let movementInterval;
+    let animationInterval;
+    let animationState = 0; // 0: initial, 1: one state, -1: other state
+    let runningDirection = null;
+
+    function wave() {
+        if (!isRunning) {
+            angle += direction * 5;
+            if (angle >= 20 || angle <= -20) {
+                direction = -direction;
+            }
+            leftArm.setAttribute("transform", `rotate(${angle}, 50, 60)`);
+        }
+        requestAnimationFrame(wave);
+    }
+
+    function animateRunning() {
+        if (animationState === 0 || animationState === -1) {
+            leftArm.setAttribute("transform", "rotate(-30, 50, 60)");
+            rightArm.setAttribute("transform", "rotate(30, 50, 60)");
+            leftLeg.setAttribute("transform", "rotate(20, 50, 120)");
+            rightLeg.setAttribute("transform", "rotate(-20, 50, 120)");
+            animationState = 1;
+        } else {
+            leftArm.setAttribute("transform", "rotate(30, 50, 60)");
+            rightArm.setAttribute("transform", "rotate(-30, 50, 60)");
+            leftLeg.setAttribute("transform", "rotate(-20, 50, 120)");
+            rightLeg.setAttribute("transform", "rotate(20, 50, 120)");
+            animationState = -1;
+        }
+    }
+
+    function moveStickman(direction) {
+        if (direction === "right") {
+            stickman.style.right = (parseInt(stickman.style.right, 10) - 10) + "px"; // Increased speed
+        } else if (direction === "left") {
+            stickman.style.right = (parseInt(stickman.style.right, 10) + 10) + "px"; // Increased speed
+        }
+    }
+
+    function startRunning(event) {
+        if (!isRunning) {
+            if (event.key === "ArrowRight") {
+                isRunning = true;
+                runningDirection = "right";
+                movementInterval = setInterval(() => moveStickman("right"), 25); // Increased speed
+                animationInterval = setInterval(animateRunning, 100);
+            } else if (event.key === "ArrowLeft") {
+                isRunning = true;
+                runningDirection = "left";
+                movementInterval = setInterval(() => moveStickman("left"), 25); // Increased speed
+                animationInterval = setInterval(animateRunning, 100);
+            }
+        }
+    }
+
+    function stopRunning() {
+        clearInterval(movementInterval);
+        clearInterval(animationInterval);
+        // Sliding effect
+        setTimeout(() => {
+            moveStickman(runningDirection);
+            leftArm.setAttribute("transform", "rotate(0, 50, 60)");
+            rightArm.setAttribute("transform", "rotate(0, 50, 60)");
+            leftLeg.setAttribute("transform", "rotate(0, 50, 120)");
+            rightLeg.setAttribute("transform", "rotate(0, 50, 120)");
+            animationState = 0;
+            isRunning = false;
+        }, 100); // Slides for an additional 100ms
+    }
+
+    document.addEventListener("keydown", startRunning);
+    document.addEventListener("keyup", stopRunning);
+
+    wave();
+});
+
+// this should allow contols for mobile
+
+let isMoving = false;
+let moveDirection = 0; // -1 for left, 1 for right
+
+document.addEventListener('touchstart', function(e) {
+    const touchX = e.touches[0].clientX;
+    const screenWidth = window.innerWidth;
+
+    if (touchX < screenWidth / 2) {
+        moveDirection = -1; // Move left
+    } else {
+        moveDirection = 1; // Move right
+    }
+
+    isMoving = true;
+    moveStickman();
+});
+
+document.addEventListener('touchend', function() {
+    isMoving = false;
+});
+
+function moveStickman() {
+    if (isMoving) {
+        // Your logic to move the stickman left or right based on moveDirection
+        // For example:
+        const stickman = document.getElementById('stickman');
+        const currentX = parseFloat(stickman.getAttribute('x') || 0);
+        stickman.setAttribute('x', currentX + moveDirection * 5); // Adjust the '5' for speed
+
+        requestAnimationFrame(moveStickman);
+    }
+}
+
+
+
+    </script>
     
 </body>
 
