@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #FFA000;
     margin: 0;
-    padding: 20px;
+    padding: 0px;
 }
 
 .container {
@@ -153,3 +153,13 @@ button:hover {
 }
 
 
+footer {
+    background-color: #FF8C00; /* Dark orange color */
+    color: #B36B00; /* White text color */
+    text-align: center; /* Center the text */
+    padding: 10px 0; /* 10px padding top and bottom to give it some space */
+    position: fixed; /* Fix the footer at the bottom */
+    width: 100%; /* Full width */
+    bottom: 0; /* Position at the bottom */
+    font-size: 12px; /* Adjust if you want the text bigger or smaller */
+}
