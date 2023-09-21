@@ -1,8 +1,11 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #FFA000;
+}
+.main {
+
     margin: 0;
-    padding: 0px;
+    padding: 40px;
 }
 
 .container {
@@ -154,7 +157,7 @@ button:hover {
 
 
 footer {
-    background-color: #FF8C00; /* Dark orange color */
+    /* background-color: #FF8C00; Dark orange color */
     color: #B36B00; /* White text color */
     text-align: center; /* Center the text */
     padding: 10px 0; /* 10px padding top and bottom to give it some space */
