@@ -32,3 +32,30 @@ document.addEventListener("DOMContentLoaded", function () {
     wave(); // Start the waving animation
 });
 
+window.addEventListener("DOMContentLoaded", function() {
+    initLeftStickmanWave();
+});
+
+function initLeftStickmanWave() {
+    const rightArm = document.getElementById("right-arm-left");
+    let direction = 1;
+    let angle = -70;
+    let animationFrameId;  
+
+    function wave() {
+        angle += direction * 5;
+        if (angle >= -50 || angle <= -90) {
+            direction = -direction;
+        }
+        rightArm.setAttribute("transform", `rotate(${angle}, 50, 60)`);
+        animationFrameId = requestAnimationFrame(wave);
+    }
+
+    wave();
+    setTimeout(() => {
+        cancelAnimationFrame(animationFrameId);  // Stop the waving after 15 seconds
+    }, 15000);
+}
+
+
+
