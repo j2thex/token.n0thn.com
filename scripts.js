@@ -105,7 +105,7 @@ async function switchToGoerli() {
     }
 }
 
-document.getElementById('switchToGoerliBtn').addEventListener('click', switchToGoerli);
+document.getElementById('switchToGoerli').addEventListener('click', switchToGoerli);
 
 
 
