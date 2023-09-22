@@ -45,23 +45,42 @@
             signifies your participation in the world's most epic, chill blockchain movement.</p>
         <p>&nbsp;</p>
 
-        <p style="text-align: center;">Join the revolution
+
             <!-- <br />
             <button onclick="location.href='token-info.html'">Get your N0THN token now!</button> -->
-            <br />
-            <button id="connectMetamaskBtn">Connect to MetaMask</button>
-            <br />
-            <button id="switchToGoerli">Switch to Goerli Testnet</button>
+            <p style="text-align: center;">Join the revolution</p>
 
-        <center>
-        <h2>Contract Address</h2>
-        <p>On the Ethereum Goerli Testnet</p>
-        <p>
-            <input type="text" id="contractAddress" value="0x0965c81656ed324d51f466B22b56645B8FDa2C73" readonly onclick="this.select();" style="width: 40%;">
-            <button onclick="copyToClipboard()">Copy</button>
-        </p>
-        <p>&nbsp;</p>
-    </center>
+            <div class="tabs">
+                <button class="tab-button active" onclick="showTab('mainnet')">Main net</button>
+                <button class="tab-button" onclick="showTab('testnet')">Test net</button>
+            </div>
+            
+            <div id="mainnet" class="tab-content">
+                <p>Coming soon!</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <h2>Contract Address</h2>
+                    <p>On the Ethereum Main net</p>
+                    <p>
+                    <input type="text" value="0x0000000000000000000" readonly onclick="this.select();" style="width: 40%;">
+                    <button onclick="copyToClipboard()">Copy</button>
+                </p>
+            </div>
+            
+            <div id="testnet" class="tab-content" style="display: none;">
+                <center>
+                    <button id="connectMetamaskBtn">Connect to MetaMask</button>
+                    <br />
+                    <button id="switchToGoerli">Switch to Goerli Testnet</button>
+                    <h2>Contract Address</h2>
+                    <p>On the Ethereum Goerli Testnet</p>
+                    <p>
+                        <input type="text" id="contractAddress" value="0x0965c81656ed324d51f466B22b56645B8FDa2C73" readonly onclick="this.select();" style="width: 40%;">
+                        <button onclick="copyToClipboard()">Copy</button>
+                    </p>
+                </center>
+            </div>
+            
 
         <h2>FAQ</h2>
 

@@ -108,5 +108,24 @@ async function switchToGoerli() {
 document.getElementById('switchToGoerli').addEventListener('click', switchToGoerli);
 
 
+function showTab(tabName) {
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => {
+        content.style.display = 'none';
+    });
+
+    document.getElementById(tabName).style.display = 'block';
+
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    if (tabName === 'mainnet') {
+        document.querySelector('.tab-button:nth-child(1)').classList.add('active');
+    } else {
+        document.querySelector('.tab-button:nth-child(2)').classList.add('active');
+    }
+}
 
 
