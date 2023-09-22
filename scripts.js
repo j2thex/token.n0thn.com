@@ -63,5 +63,16 @@ function copyToClipboard() {
     document.execCommand("copy");
 }
 
+document.getElementById('connectMetamaskBtn').addEventListener('click', function() {
+    if (typeof window.ethereum !== 'undefined') {
+        // MetaMask is installed
+        alert('MetaMask is installed! Proceed to the next step.');
+        this.textContent = "MetaMask Detected!";  // Change button text
+    } else {
+        // MetaMask is not installed
+        alert('Please install MetaMask to continue.');
+    }
+});
+
 
 
