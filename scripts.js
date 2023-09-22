@@ -62,6 +62,11 @@ function copyToClipboard() {
     copyText.select();
     document.execCommand("copy");
 }
+function copyToClipboardmain() {
+    var copyText = document.getElementById("maincontractAddress");
+    copyText.select();
+    document.execCommand("copy");
+}
 
 document.getElementById('connectMetamaskBtn').addEventListener('click', async function() {
     if (typeof window.ethereum !== 'undefined') {
