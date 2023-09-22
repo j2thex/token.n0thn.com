@@ -83,5 +83,30 @@ document.getElementById('connectMetamaskBtn').addEventListener('click', async fu
     }
 });
 
+async function switchToGoerli() {
+    try {
+        await window.ethereum.request({
+            method: 'wallet_addEthereumChain',
+            params: [{
+                chainId: '0x5',
+                chainName: 'Goerli Testnet',
+                nativeCurrency: {
+                    name: 'Goerli ETH',
+                    symbol: 'goETH',
+                    decimals: 18
+                },
+                rpcUrls: ['https://goerli.infura.io/v3/a69b9712edf34a73875b1a786da3285c'],
+                blockExplorerUrls: ['https://goerli.etherscan.io/']
+            }]
+        });
+        alert('Switched to Goerli Testnet!');
+    } catch (error) {
+        alert('Error switching to Goerli Testnet. Please ensure MetaMask is set up correctly and try again.');
+    }
+}
+
+document.getElementById('switchToGoerliBtn').addEventListener('click', switchToGoerli);
+
+
 
 
