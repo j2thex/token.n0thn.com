@@ -57,5 +57,11 @@ function initLeftStickmanWave() {
     }, 15000);
 }
 
+function copyToClipboard() {
+    var copyText = document.getElementById("contractAddress");
+    copyText.select();
+    document.execCommand("copy");
+}
+
 
 
