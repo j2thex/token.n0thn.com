@@ -63,11 +63,20 @@ function copyToClipboard() {
     document.execCommand("copy");
 }
 
-document.getElementById('connectMetamaskBtn').addEventListener('click', function() {
+document.getElementById('connectMetamaskBtn').addEventListener('click', async function() {
     if (typeof window.ethereum !== 'undefined') {
-        // MetaMask is installed
-        alert('MetaMask is installed! Proceed to the next step.');
-        this.textContent = "MetaMask Detected!";  // Change button text
+        try {
+            // Request account access
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            if (accounts.length > 0) {
+                alert('Connected to MetaMask!');
+                this.textContent = "MetaMask Connected!";
+            } else {
+                alert('Please connect MetaMask to continue.');
+            }
+        } catch (error) {
+            alert('Error connecting to MetaMask. Please ensure it is set up correctly.');
+        }
     } else {
         // MetaMask is not installed
         alert('Please install MetaMask to continue.');
