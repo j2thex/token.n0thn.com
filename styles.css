@@ -200,7 +200,7 @@ footer {
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 50px; /* Rounded edges */
+    border-radius: 5px; /* Rounded edges */
     font-size: 16px;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
@@ -229,3 +229,17 @@ footer {
 .telegram-button:hover:before {
     transform: translateX(200%) skewX(-45deg); /* Move overlay on hover */
 }
+
+.step {
+    background-color: #f7f7f7; /* Light gray background */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.step h2 {
+    margin-top: 0; /* Remove top margin for better alignment */
+    color: #333; /* Dark gray text */
+}
+

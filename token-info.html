@@ -51,7 +51,8 @@
             <p style="text-align: center;">Join the revolution</p>
             
             <center>
-            <button class="telegram-button" onclick="window.location.href='https://t.me/+E_3J97fbh7A2N2Ni'">Join the N0THN Channel on Telegram</button>
+                <button class="telegram-button" onclick="window.open('https://t.me/+E_3J97fbh7A2N2Ni', '_blank')">Join on Telegram</button>
+
             </center>       
             <p>&nbsp;</p>
 
@@ -76,17 +77,27 @@
             
             <div id="testnet" class="tab-content" style="display: none;">
                 <center>
-                    <button id="connectMetamaskBtn">Connect to MetaMask</button>
-                    <br />
-                    <button id="switchToGoerli">Switch to Goerli Testnet</button>
-                    <h2>Contract Address</h2>
-                    <p>On the Ethereum Goerli Testnet</p>
-                    <p>
-                        <input type="text" id="contractAddress" value="0x0965c81656ed324d51f466B22b56645B8FDa2C73" readonly onclick="this.select();" style="width: 40%;">
-                        <button onclick="copyToClipboard()">Copy</button>
-                    </p>
+                    <div class="step">
+                        <h2>Step 1: Connect MetaMask</h2>
+                        <button id="connectMetamaskBtn">Connect MetaMask</button>
+                    </div>
+                    <div class="step">
+                        <h2>Step 2: Switch Network</h2>
+                        <button id="switchToGoerli">Switch to Goerli Testnet</button>
+                    </div>
+                    <div class="step">
+                        <h2>Step 3: Import Tokens</h2>
+                        <p>
+                            <input type="text" id="contractAddress" value="0x0965c81656ed324d51f466B22b56645B8FDa2C73" readonly onclick="this.select();" style="width: 40%;">
+                            <button onclick="copyToClipboard()">Copy</button>
+                        </p>
+                    </div>
+
+
+                    
                 </center>
             </div>
+            
             
 
         <h2>FAQ</h2>
