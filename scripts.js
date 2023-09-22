@@ -92,7 +92,7 @@ async function switchToGoerli() {
                 chainName: 'Goerli Testnet',
                 nativeCurrency: {
                     name: 'Goerli ETH',
-                    symbol: 'goETH',
+                    symbol: 'ETH',
                     decimals: 18
                 },
                 rpcUrls: ['https://goerli.infura.io/v3/a69b9712edf34a73875b1a786da3285c'],
