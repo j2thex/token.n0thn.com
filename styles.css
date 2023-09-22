@@ -195,3 +195,37 @@ footer {
 
     overflow: auto; /* To handle content overflow */
 }
+.telegram-button {
+    background-color: #0088cc; /* Telegram color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px; /* Rounded edges */
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.telegram-button:hover {
+    transform: scale(1.05); /* Slightly enlarge when hovered */
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+}
+
+.telegram-button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Slight white overlay */
+    transform: skewX(-45deg); /* Diagonal effect */
+    transition: transform 0.7s;
+}
+
+.telegram-button:hover:before {
+    transform: translateX(200%) skewX(-45deg); /* Move overlay on hover */
+}
