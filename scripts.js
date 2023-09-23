@@ -1,19 +1,36 @@
 const stickman = document.getElementById("stickman");
 
-document.addEventListener("DOMContentLoaded", function () {
-    const faqQuestions = document.querySelectorAll(".faq-question");
+document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
 
     faqQuestions.forEach(question => {
-        question.addEventListener("click", function () {
-            const answer = this.nextElementSibling;
-            if (answer.style.display === "block") {
-                answer.style.display = "none";
+        question.addEventListener('click', function() {
+            const parent = this.parentElement;
+            const answer = parent.querySelector('.faq-answer');
+
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
             } else {
-                answer.style.display = "block";
+                answer.style.display = 'none';
             }
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const parent = button.parentElement;
+            if (parent.classList.contains('active')) {
+                parent.classList.remove('active');
+            } else {
+                parent.classList.add('active');
+            }
+        });
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     const stickman = document.getElementById("sliding-stickman");
     const leftArm = document.getElementById("left-arm");
