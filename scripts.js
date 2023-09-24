@@ -374,7 +374,7 @@ document.getElementById('connectMetamaskBtn').addEventListener('click', async fu
             // Request account access
             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
             if (accounts.length > 0) {
-                alert('Connected to MetaMask!');
+
                 this.textContent = "MetaMask Connected!";
                 
                 // Initialize web3
@@ -384,7 +384,10 @@ document.getElementById('connectMetamaskBtn').addEventListener('click', async fu
                 const contract = new web3.eth.Contract(ABI, contractAddress);
                 
                 // Fetch the token balance
-                const balance = await contract.methods.balanceOf(accounts[0]).call();
+                const rawBalance = await contract.methods.balanceOf(accounts[0]).call();
+                const balance = web3.utils.fromWei(rawBalance, 'ether');
+
+
                 
                 // Update the balance in the HTML
                 document.getElementById('tokenBalance').textContent = `N0THN Balance: ${balance}`;
