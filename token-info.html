@@ -10,6 +10,12 @@
 
     <script src="scripts.js" defer></script>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.3.5/dist/web3.min.js"></script>
+    <script>
+        if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+            // For example, you can display a message or adjust the layout specifically for mobile users
+            alert('For the best experience, please use the MetaMask mobile app browser.');
+        }
+    </script>
 
 </head>
 
@@ -58,7 +64,8 @@
         <p style="text-align: center;">Join the revolution</p>
 
         <center>
-            <button class="telegram-button" onclick="window.open('https://t.me/+E_3J97fbh7A2N2Ni', '_blank')">Visit channel on
+            <button class="telegram-button" onclick="window.open('https://t.me/+E_3J97fbh7A2N2Ni', '_blank')">Visit
+                channel on
                 Telegram</button>
 
         </center>
@@ -86,7 +93,7 @@
 
         <div id="testnet" class="tab-content" style="display: none;">
             <center>
-                
+
                 <div class="step">
                     <h2>Step 1: Switch Network</h2>
                     <button id="switchToGoerli">Switch to Goerli Testnet</button>
@@ -154,7 +161,7 @@
     </div>
     <div>
         <footer>
-            Copyright, 2023, a website by  <a href="jeff.html">Jeffrey Smith</a>
+            Copyright, 2023, a website by <a href="jeff.html">Jeffrey Smith</a>
         </footer>
 
     </div>

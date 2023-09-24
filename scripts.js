@@ -448,7 +448,4 @@ function showTab(tabName) {
     }
 }
 
-if (window.innerWidth <= 800 && window.innerHeight <= 600) {
-  // For example, you can display a message or adjust the layout specifically for mobile users
-  alert('For the best experience, please use the MetaMask mobile app browser.');
-}
+
