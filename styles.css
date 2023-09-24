@@ -312,3 +312,23 @@ footer {
     0% { transform: rotateY(0deg); }
     100% { transform: rotateY(360deg); }
 }
+
+@media (max-width: 768px) {
+    /* Adjust the padding for the main container */
+    .main {
+        padding: 20px;
+    }
+
+    /* Increase button sizes for better touch interaction */
+    button {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+
+    /* Adjust the coin size for better visibility */
+    .coin {
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+    }
+}
