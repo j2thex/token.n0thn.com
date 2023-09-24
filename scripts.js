@@ -390,7 +390,7 @@ document.getElementById('connectMetamaskBtn').addEventListener('click', async fu
 
                 
                 // Update the balance in the HTML
-                document.getElementById('tokenBalance').textContent = `N0THN Balance: ${balance}`;
+                document.getElementById('tokenBalance').textContent = `Your N0THN Balance: ${balance}`;
             } else {
                 alert('Please connect MetaMask to continue.');
             }
@@ -419,7 +419,7 @@ async function switchToGoerli() {
                 blockExplorerUrls: ['https://goerli.etherscan.io/']
             }]
         });
-        alert('Switched to Goerli Testnet!');
+
     } catch (error) {
         alert('Error switching to Goerli Testnet. Please ensure MetaMask is set up correctly and try again.');
     }
