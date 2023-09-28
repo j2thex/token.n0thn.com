@@ -223,32 +223,48 @@ footer {
     font-size: 12px; /* Adjust if you want the text bigger or smaller */
 }
 .tabs {
-    display: flex;
-    justify-content: center;
+    text-align: center;
     margin-bottom: 20px;
 }
-
 .tab-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
     padding: 10px 20px;
-    margin: 0 5px;
-    background-color: #FFA500; /* Orange */
-    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease-in-out;
+    margin: 0 5px;
 }
 
-.tab-button.active {
-    background-color: #FF8C00; /* Darker orange */
-    border: 1px solid black;
+.tab-button.active,
+.tab-button:hover {
+    background-color: #0088cc;
+    color: white;
+    border-color: #0088cc;
 }
 
+/* Tab Content Styles */
 .tab-content {
-    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none; /* Initially hide all tab content */}
 
+    .address-field input, .step button {
+        /* flex-grow: 1; */
+        margin-right: 20px;
+        width: 50%;
+    }
 
-    overflow: auto; /* To handle content overflow */
+.tab-content p,
+.tab-content h2 {
+    margin: 0 0 15px 0;
 }
-
+#mainnet {
+    display: block;
+}
 
 .step {
     background-color: #f7f7f7; /* Light gray background */
