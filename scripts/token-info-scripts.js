@@ -357,7 +357,7 @@ document.getElementById('connectMetamaskBtn').addEventListener('click', async fu
             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
             if (accounts.length > 0) {
 
-                this.textContent = "MetaMask Connected!";
+                // this.textContent = "MetaMask Connected";
                 
                 // Initialize web3
                 const web3 = new Web3(window.ethereum);
@@ -373,6 +373,8 @@ document.getElementById('connectMetamaskBtn').addEventListener('click', async fu
                 
                 // Update the balance in the HTML
                 document.getElementById('tokenBalance').textContent = `Your N0THN Balance: ${balance}`;
+                document.getElementById('connectMetamaskBtn').textContent = `Your N0THN Balance: ${balance}`;
+                
             } else {
                 alert('Please connect MetaMask to continue.');
             }
