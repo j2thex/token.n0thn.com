@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <script src="scripts.js" defer></script>
+    <script src="/scripts/token-info-scripts.js" defer></script>
     <script src="/scripts/addTokenToMetamask.js" defer></script>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.3.5/dist/web3.min.js"></script>
     <script>
@@ -33,35 +33,47 @@
                 <div class="side front"></div>
                 <div class="side back"></div>
             </div>
+            <div class="balance-display">
+                <p id="tokenBalance">Your N0THN Balance: N/A</p>
+            </div>
         </center>
 
         <div class="token-info-container">
             <header>
                 <h1>N0THN Token</h1>
-                <p>Proud to present N0THN, a meme token on the Ethereum blockchain. It does nothing extraordinary, it's simply here - hanging around in the vast expanse of the blockchain. But that's what makes it special!</p>
+                <p>Proud to present N0THN, a meme token on the Ethereum blockchain. It does nothing extraordinary, it's
+                    simply here - hanging around in the vast expanse of the blockchain. But that's what makes it
+                    special!</p>
             </header>
-    
+
             <section class="token-details">
                 <h2><i class="fas fa-info-circle"></i> The Story of N0THN</h2>
-                <p>In a world full of tokens with utility, functionality, and purpose, a decision was made to take a step back, sit down, and create a token that just... exists. Like a monument in the digital world, N0THN stands tall, reminding everyone of the simple joy of being.</p>
+                <p>In a world full of tokens with utility, functionality, and purpose, a decision was made to take a
+                    step back, sit down, and create a token that just... exists. Like a monument in the digital world,
+                    N0THN stands tall, reminding everyone of the simple joy of being.</p>
             </section>
-    
+
             <section class="token-supply">
                 <h2><i class="fas fa-coins"></i> Token Total Supply</h2>
-                <p>There are a total of 420,000,000 N0THN tokens in existence. No more, no less. They aren't here to be used, staked, or farmed. They're here just to be.</p>
+                <p>There are a total of 420,000,000 N0THN tokens in existence. No more, no less. They aren't here to be
+                    used, staked, or farmed. They're here just to be.</p>
             </section>
-    
+
             <section class="token-distribution">
                 <h2><i class="fas fa-chart-pie"></i> Token Distribution</h2>
-                <p>N0THN tokens have been evenly distributed. Check out the public ledger on Ethereum's blockchain to see for yourself.</p>
+                <p>N0THN tokens have been evenly distributed. Check out the public ledger on Ethereum's blockchain to
+                    see for yourself.</p>
             </section>
-    
+
             <section class="token-acquisition">
                 <h2><i class="fas fa-hand-holding-usd"></i> How to get N0THN tokens</h2>
-                <p>Wondering how to get your hands on N0THN? It's been made easy. Just head over to a preferred exchange and swap your ETH for N0THN. Remember, it doesn't do anything, but it is a statement, a symbol, a digital asset that signifies your participation in the world's most epic, chill blockchain movement.</p>
+                <p>Wondering how to get your hands on N0THN? It's been made easy. Just head over to a preferred exchange
+                    and swap your ETH for N0THN. Remember, it doesn't do anything, but it is a statement, a symbol, a
+                    digital asset that signifies your participation in the world's most epic, chill blockchain movement.
+                </p>
             </section>
-    
-            
+
+
         </div>
 
 
@@ -83,19 +95,20 @@
             <button class="tab-button active" onclick="showTab('mainnet')">Main net</button>
             <button class="tab-button" onclick="showTab('testnet')">Test net</button>
         </div>
-        
+
         <div id="mainnet" class="tab-content active">
             <h2>Coming Soon!</h2>
             <p class="info">The Main net is currently under development. Stay tuned for updates!</p>
             <div class="contract-address">
                 <h3>Contract Address </h3>
                 <div class="address-field">
-                    <input type="text" id="maincontractAddress" value="0x0000000000000000000000000000000000000000" readonly onclick="this.select();">
+                    <input type="text" id="maincontractAddress" value="0x0000000000000000000000000000000000000000"
+                        readonly onclick="this.select();">
                     <button onclick="copyToClipboardmain()">Copy</button>
                 </div>
             </div>
         </div>
-        
+
         <div id="testnet" class="tab-content">
             <div class="steps">
                 <div class="step">
@@ -109,21 +122,28 @@
                 <div class="step">
                     <h2>Step 3: Import Tokens</h2>
 
-                    <button id="addToMetaMaskBtn">Import N0THN Token</button>
+                    <button id="addToMetaMaskBtn">Add N0THN to MetaMask</button>
                     <p>&nbsp;</p>
-                    <div class="address-field">
-                        <input type="text" id="contractAddress" value="0x0965c81656ed324d51f466B22b56645B8FDa2C73" readonly onclick="this.select();">
-                        <button onclick="copyToClipboard()">Copy</button>
+                    OR
+                    <p>&nbsp;</p>
+                    <button id="spoilerBtn">Add Manually</button>
+
+                    <div id="spoilerContent" style="display: none;">
+                        <p>&nbsp;</p>
+                        <div class="address-field">
+                            <input type="text" id="contractAddress" value="0x0965c81656ed324d51f466B22b56645B8FDa2C73"
+                                readonly onclick="this.select();">
+                            <button onclick="copyToClipboard()">Copy</button>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
+
         
-        <div class="balance-display">
-            <p id="tokenBalance">Your N0THN Balance: 0</p>
-        </div>
-        
-        
+
+
 
         <h2>FAQ</h2>
 

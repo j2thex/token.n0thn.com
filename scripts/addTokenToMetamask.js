@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
+
     document.getElementById('addToMetaMaskBtn').addEventListener('click', async () => {
         try {
             // Check if MetaMask is installed
