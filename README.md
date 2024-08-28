@@ -1,3 +1,3 @@
-# j2thex.github.io
+# token.n0thn.github.io
 
-This is my website.
+This is a website about the n0thn token.
